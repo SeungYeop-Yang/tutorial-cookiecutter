@@ -1,0 +1,11 @@
+services:
+  {{cookiecutter.project_slug}}:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: {{cookiecutter.project_slug}}
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: uvicorn app.main:app --host
